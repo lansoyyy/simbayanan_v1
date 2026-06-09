@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>uride Admin</title>
+  <script>
+    // GitHub Pages SPA redirect workaround.
+    // When GitHub Pages returns a 404 (e.g. on page refresh at /sakay_admin/franchisee/dashboard),
+    // this page encodes the path and redirects to index.html so Flutter can handle it.
+    var segmentsToKeep = 1; // number of path segments for the repo (e.g. /sakay_admin)
+    var l = window.location;
+    l.replace(
+      l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+      l.pathname.split('/').slice(0, 1 + segmentsToKeep).join('/') + '/?p=' +
+      l.pathname.slice(1).split('/').slice(segmentsToKeep).join('/').replace(/&/g, '~and~') +
+      (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+      l.hash
+    );
+  </script>
+</head>
+<body></body>
+</html>
